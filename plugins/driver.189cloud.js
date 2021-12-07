@@ -476,7 +476,12 @@ module.exports = class Driver {
         }
       }
 
-      if (params.pageNum * params.pageSize < parseInt(data.recordCount)) {
+      let count = 0
+      if(data.fileListAO?.count){
+        count = data.fileListAO.count
+      }
+
+      if (params.pageNum * params.pageSize < count) {
         pageNum++
       } else {
         break
