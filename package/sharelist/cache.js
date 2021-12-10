@@ -1,6 +1,6 @@
 const createDB = require('./db')
 module.exports = (path) => {
-  let data = createDB(path, { raw: true, shallow: true })
+  let data = {}//createDB(path, { raw: true, shallow: true })
 
   const get = (id) => {
     let ret = data[id]
