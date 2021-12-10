@@ -589,7 +589,7 @@ module.exports = class Driver {
       return this.app.error({ message: resp.error })
     }
 
-    /*
+   if(false){
     let redir = await this.app.request.get(resp.fileDownloadUrl, {
       followRedirect:false ,
       responseType: 'text',
@@ -598,16 +598,14 @@ module.exports = class Driver {
         //accept: 'application/json;charset=UTF-8',
       },
     })
-
     console.log(redir.headers.location)
 
-    let result = {download_url: redir.headers.location, ...filedata}
-    */
-
+    return {download_url: redir.headers.location, ...filedata}
+   }
+   else{
     console.log(resp.fileDownloadUrl)
-    
-    let result = {download_url: resp.fileDownloadUrl, ...filedata}
 
-    return result
+    return {download_url: resp.fileDownloadUrl, ...filedata}
+   }
   }
 }
